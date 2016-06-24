@@ -29,52 +29,29 @@
 			<version>1.2</version>
 		</dependency>
 		<dependency>
-			<groupId>hsqldb</groupId>
-			<artifactId>hsqldb</artifactId>
-			<version>1.8.0.10</version>
-		</dependency>
-
-		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
 		</dependency>
 	</dependencies>
 
 	<build>
-		<pluginManagement>
-			<plugins>
-				<plugin>
-					<groupId>org.apache.tomcat.maven</groupId>
-					<artifactId>tomcat7-maven-plugin</artifactId>
-					<version>2.2</version>
-				</plugin>
-			</plugins>
-		</pluginManagement>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>
 				<artifactId>tomcat7-maven-plugin</artifactId>
 				<version>2.2</version>
-				<executions>
-					<execution>
-						<id>tomcat-run</id>
-						<goals>
-							<goal>exec-war-only</goal>
-						</goals>
-						<phase>package</phase>
-						<configuration>
-							<path>foo</path>
-							<contextFile>src/main/tomcat/context.xml</contextFile>
-							<!-- optional, needed only if you want to use a preconfigured server.xml 
-								file -->
-							<serverXml>src/main/tomcat/server.xml</serverXml>
-							<!-- optional values which can be configurable -->
-							<attachArtifactClassifier>default value is exec-war but you can
-								customize</attachArtifactClassifier>
-							<attachArtifactClassifierType>default value is jar</attachArtifactClassifierType>
-						</configuration>
-					</execution>
-				</executions>
+				<configuration>
+					<contextFile>src/main/tomcat/context.xml</contextFile>
+				</configuration>
+				<dependencies>
+                    <!-- https://mvnrepository.com/artifact/org.apache.derby/derby -->
+                    <dependency>
+                        <groupId>org.apache.derby</groupId>
+                        <artifactId>derbyclient</artifactId>
+                        <version>10.11.1.1</version>
+                    </dependency>
+
+                </dependencies>
 			</plugin>
 		</plugins>
 	</build>

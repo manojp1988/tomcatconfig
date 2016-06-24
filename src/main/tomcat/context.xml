@@ -23,7 +23,10 @@
      on session expiration as well as webapp lifecycle) -->
     <!-- <Valve className="org.apache.catalina.valves.CometConnectionManagerValve"
      /> -->
-    
-    <ResourceLink name="jdbc/SampleData" global="jdbc/SampleData"
-    type="javax.sql.DataSource" />
+
+    <Resource name="jdbc/SampleData" auth="Container" type="javax.sql.DataSource"
+              username="sample" password="password"
+              url="jdbc:derby://localhost:1527/MyDbTest;create=true"
+              driverClassName="org.apache.derby.jdbc.ClientDriver"
+              poolPreparedStatements="true"/>
 </Context>
