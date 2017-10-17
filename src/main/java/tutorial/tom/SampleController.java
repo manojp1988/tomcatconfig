@@ -3,9 +3,11 @@ package tutorial.tom;
 /**
  * Created by manojperiathambi on 6/24/16.
  */
+
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
+import javax.xml.ws.Response;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -18,20 +20,9 @@ import java.sql.SQLException;
 @Controller
 public class SampleController {
 
-    @Autowired
-    private JdbcTemplate template;
-
-    @RequestMapping("/factoryBean")
+    @RequestMapping("/hello")
     @ResponseBody
-    public String factoryBean() throws SQLException {
-        return "DataSource retrieved from JNDI using JndiObjectFactoryBean: " + template.getDataSource().getConnection().toString();
+    public String sayHello() {
+        return "Hello World";
     }
-
-    @RequestMapping("/direct")
-    @ResponseBody
-    public String direct() throws NamingException {
-        return "DataSource retrieved directly from JNDI: " +
-                new InitialContext().lookup("java:comp/env/jdbc/myDataSource");
-    }
-
 }

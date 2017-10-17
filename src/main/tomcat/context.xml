@@ -24,9 +24,5 @@
     <!-- <Valve className="org.apache.catalina.valves.CometConnectionManagerValve"
      /> -->
 
-    <Resource name="jdbc/SampleData" auth="Container" type="javax.sql.DataSource"
-              username="sample" password="password"
-              url="jdbc:derby://localhost:1527/MyDbTest;create=true"
-              driverClassName="org.apache.derby.jdbc.ClientDriver"
-              poolPreparedStatements="true"/>
+
 </Context>
